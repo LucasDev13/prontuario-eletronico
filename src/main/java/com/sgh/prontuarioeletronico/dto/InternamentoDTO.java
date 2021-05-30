@@ -12,9 +12,9 @@ public class InternamentoDTO {
     private Long registro;
     private Paciente paciente;
     private LocalDate diasUti;//verifica a data de internação e conta quantos dias está internado.
-    private LocalDate dataEntrada;
-    private LocalTime horaEntrada;
-    private LocalDateTime dataHoraInternamento;
+    private LocalDate dataEntrada = LocalDate.now();
+    private LocalTime horaEntrada = LocalTime.now();
+    private LocalDateTime dataHoraInternamento = LocalDateTime.now();
 
     public InternamentoDTO(){}
 

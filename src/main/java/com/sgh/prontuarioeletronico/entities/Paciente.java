@@ -49,8 +49,8 @@ public class Paciente {
     //@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
     //private List<PrescricaoReceituario> prescricaoReceituario;
 
-    private LocalDate dataCadastro;
-    private LocalTime horaCadastro;
+    private LocalDate dataCadastro = LocalDate.now();
+    private LocalTime horaCadastro = LocalTime.now();
 
     public Paciente(){}
 

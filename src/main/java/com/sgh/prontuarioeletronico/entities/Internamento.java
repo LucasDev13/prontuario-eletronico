@@ -40,9 +40,9 @@ public class Internamento {
         this.registro = registro;
         paciente = new Paciente();
         this.diasUti = diasUti;
-        this.dataEntrada = LocalDate.now();
-        this.horaEntrada = LocalTime.now();
-        this.dataHoraInternamento = LocalDateTime.now();
+        this.dataEntrada = dataEntrada;
+        this.horaEntrada = horaEntrada;
+        this.dataHoraInternamento = dataHoraInternamento;
     }
 
     public Internamento(InternamentoDTO dto){
