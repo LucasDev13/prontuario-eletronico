@@ -1,5 +1,7 @@
 package com.sgh.prontuarioeletronico.entities;
 
+import com.sgh.prontuarioeletronico.util.GeradorProntuario;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,7 +23,7 @@ public class Paciente {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	private int prontuario;//gerar automático e sequencial.
+	private Long prontuario = GeradorProntuario.geraNumProntuario();
 
     @OneToMany(mappedBy = "paciente")
     private List<Internamento> internamentos = new ArrayList<>();
@@ -54,7 +56,7 @@ public class Paciente {
 
     public Paciente(){}
 
-    public Paciente(int prontuario, List<Internamento> internamentos, String nomeCompleto,
+    public Paciente(Long prontuario, List<Internamento> internamentos, String nomeCompleto,
                     String sexo, LocalDate dataNascimento, LocalDate dataPrescricao,
                     Double pesoNascimento, Double pesoAnteriar, Double pesoAtual, int idade,
                     LocalDate dataCadastro, LocalTime horaCadastro) {
@@ -72,11 +74,11 @@ public class Paciente {
         this.horaCadastro = LocalTime.now();
     }
 
-    public int getProntuario() {
+    public Long getProntuario() {
         return prontuario;
     }
 
-    public void setProntuario(int prontuario) {
+    public void setProntuario(Long prontuario) {
         this.prontuario = prontuario;
     }
 
