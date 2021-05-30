@@ -6,12 +6,13 @@ import java.time.LocalTime;
 
 import com.sgh.prontuarioeletronico.entities.Internamento;
 import com.sgh.prontuarioeletronico.entities.Paciente;
+import com.sgh.prontuarioeletronico.util.GeradorRegistro;
 
 public class InternamentoDTO {
     private Long id;
     private Long registro;
     private Paciente paciente;
-    private LocalDate diasUti;//verifica a data de internação e conta quantos dias está internado.
+    private LocalDate diasUti;
     private LocalDate dataEntrada = LocalDate.now();
     private LocalTime horaEntrada = LocalTime.now();
     private LocalDateTime dataHoraInternamento = LocalDateTime.now();
@@ -95,13 +96,11 @@ public class InternamentoDTO {
         this.dataHoraInternamento = dataHoraInternamento;
     }
 
-    public void convertDtoToEntity(Internamento entity){
-        id = entity.getId();
-        registro = entity.getRegistro();
-        paciente = entity.getPaciente();
-        diasUti = entity.getDiasUti();
-        dataEntrada = entity.getDataEntrada();
-        horaEntrada = entity.getHoraEntrada();
-        dataHoraInternamento = entity.getDataHoraInternamento();
-    }
+    /**public Long numRegistro(){
+        Long retorno;
+        registro = GeradorRegistro.geraNumRegistro();
+        System.out.println(registro);
+        return registro;
+
+    }*/
 }

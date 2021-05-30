@@ -21,7 +21,7 @@ public class Internamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long registro;//gerar automático e sequencial
+    private Long registro;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paciente_id")
@@ -109,15 +109,5 @@ public class Internamento {
 
     public void setDataHoraInternamento(LocalDateTime dataHoraInternamento) {
         this.dataHoraInternamento = dataHoraInternamento;
-    }
-
-    public void convertDtoToEntity(InternamentoDTO dto){
-        id = dto.getId();
-        registro = dto.getRegistro();
-        paciente = dto.getPaciente();
-        diasUti = dto.getDiasUti();
-        dataEntrada = dto.getDataEntrada();
-        horaEntrada = dto.getHoraEntrada();
-        dataHoraInternamento = dto.getDataHoraInternamento();
     }
 }
